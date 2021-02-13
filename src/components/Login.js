@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from "semantic-ui-react";
+import axios from "axios";
 
 export default function Login() {
     const [username, setUsername] = useState('')
@@ -7,9 +8,11 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
     
-
     const handleSubmit = (e) => {
         e.preventDefault()
+        axios.post("http://localhost:3000/users")
+          .then(response => console.log(response))
+        
     }
 
     return(
