@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import { Form, Button } from "semantic-ui-react";
-import axios from "axios";
 
-export default function Login() {
+export default function Signup() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
+
+    const user = {user: {
+      username,
+      email,
+      password,
+      password_confirmation: passwordConfirm
+     }
+  }
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3000/users")
+        fetch("http://localhost:3000/users", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify(user)
+        })
           .then(response => console.log(response))
         
     }
