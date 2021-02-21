@@ -19,7 +19,7 @@ export default function Signup() {
       e.preventDefault()
       fetch("http://localhost:3000/users", {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
       })
         .then(response => response.json())
