@@ -11,7 +11,7 @@ function App() {
     <Container >
       <Home />
       {/* <Signup /> */}
-      <Login/>
+      {/* <Login/> */}
     </Container>
   );
 }

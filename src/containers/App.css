@@ -7,9 +7,28 @@ body {
 }
 
 .nav {
-  width: 100%;
-  text-align: center;
-  padding: 5px;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #375668;
   color: white;
-  background-color: rgb(55, 86, 104);
+}
+
+.nav .nav-link-left {
+  padding: 1rem 0;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.7rem;
+}
+
+.nav .nav-links-right {
+  float: right;
+}
+
+span {
+  font-weight: 300;
+  font-size: 1.3rem;
 }
