@@ -2,23 +2,19 @@ import React, { useState } from 'react';
 import { Form, Button } from "semantic-ui-react";
 
 
-export default function Signup() {
+export default function Login() {
   const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
 
   const user = {user: {
       username,
-      email,
-      password,
-      password_confirmation: passwordConfirm
+      password
     }
   }
   
   const handleSubmit = (e) => {
       e.preventDefault()
-      fetch("http://localhost:3000/users", {
+      fetch("http://localhost:3000/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
@@ -45,40 +41,23 @@ export default function Signup() {
 
   return(
       <Form onSubmit={handleSubmit}>
-      <Form.Input
-        type="username"
-        label="username"
-        name="username"
-        placeholder="Create a funky username Bro!"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-        required
-        />
         <Form.Input
-          type="email"
-          label="email"
-          name="email" 
-          placeholder="example@email.com"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
+          type="username"
+          label="username"
+          name="username"
+          placeholder="Username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
           required
         />
+       
         <Form.Input 
           type="password"
           label="password"
           name="off"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          required
-        />
-        <Form.Input 
-          type="password"
-          label="confirm password"
-          name="off"
-          placeholder="passwordConfirm"
-          value={passwordConfirm}
-          onChange={e => setPasswordConfirm(e.target.value)}
           required
         />
         <Button type='submit' onSubmit={handleSubmit}>Submit</Button>
