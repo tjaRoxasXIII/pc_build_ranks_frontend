@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+.pc-card-img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;

@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar'
+import ComputerListContainer from '../components/ComputersComponents/ComputerListContainer';
 
  function Home() {
-   const PCs = []
-
-  useEffect(() => {
-      fetch('http://localhost:3000/computers')
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-  })
-
    return (
      <div>
         <Navbar />
+        <ComputerListContainer />
       </div>
    );
  };
