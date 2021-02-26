@@ -2,7 +2,7 @@ import React from 'react'
 import Computer from './Computer'
 
 const ComputerList = ({ computers }) => (
-    <div>
+    <div className="cards">
         { computers.map(computer => <Computer computer={computer}/>)}
     </div>
 )
