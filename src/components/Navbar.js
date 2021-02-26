@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
  function Navbar() {
@@ -12,12 +12,17 @@ import styled from 'styled-components'
           <i className="fas fa-mouse-pointer"></i>
           <a href="#" className="home-logo">Home</a>
         </div>
+        
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
           <span />
           <span />
           <span />
         </div>
         <Menu isOpen={isOpen }>
+        <form className="d-flex">
+          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
           <a href="#" className="menu-link">Register</a>
           <a href="#" className="menu-link">Login</a>
           <a href="#" className="menu-link">Profile</a>
@@ -34,7 +39,7 @@ import styled from 'styled-components'
  align-items: center;
  position: relative;
 
-@media (max-width: 768px) {
+@media (max-width: 980px) {
    overflow: hidden;
    flex-direction: column;
    width: 100%;

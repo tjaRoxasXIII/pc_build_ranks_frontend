@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import { Container, } from "semantic-ui-react";
 import Signup from '../components/Signup'
 import Login from '../components/Login'
 import Home from './Home';
@@ -8,11 +7,11 @@ import Home from './Home';
 
 function App() {
   return (
-    <Container >
+    <div>
       <Home />
       {/* <Signup /> */}
       {/* <Login/> */}
-    </Container>
+    </div>
   );
 }
 
