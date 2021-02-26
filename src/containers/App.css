@@ -38,7 +38,7 @@ body {
   cursor: pointer;
   padding-right: 2rem;
 }
-@media (max-width: 980px) {
+@media (max-width: 1410px) {
   .hamburger {
     display: flex;
     color: white;
@@ -83,7 +83,7 @@ body {
   align-items: center;
   position: relative;
 }
-@media (max-width: 980px) {
+@media (max-width: 1410px) {
   .nav-menu {
     overflow: hidden;
     flex-direction: column;
@@ -110,5 +110,12 @@ body {
   color: #C98383;
 }
 
+.search-bar {
+  width: 100%;
+}
+
+.d-flex {
+  width: 50%;
+}
 
 
