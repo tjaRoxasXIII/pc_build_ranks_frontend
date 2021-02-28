@@ -1,8 +1,9 @@
 import React from 'react'
+import PC from '../../images/PC.jpg'
 
 const Computer = (computer) => (
     <div className="card">
-        <img className="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/819XYUimTuL._AC_SL1500_.jpg" />
+        <img className="card-img-top" src={PC} alt="Test" />
         <div className="card-body">
             <h1 className="card-title">{ computer.computer.name }</h1>
             <h2 className="card-text">CPU: { computer.computer.CPU }</h2>

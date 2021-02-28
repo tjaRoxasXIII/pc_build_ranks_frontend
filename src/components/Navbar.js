@@ -10,7 +10,7 @@ import styled from 'styled-components';
         <div className="nav-link-left">
           <i className="fas fa-keyboard logo"></i>
           <i className="fas fa-mouse-pointer"></i>
-          <a href="#" className="home-logo">Home</a>
+          <a href="/home" className="home-logo">Home</a>
         </div>
         <form className="d-flex">
           <input className="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search"></input>
@@ -24,7 +24,7 @@ import styled from 'styled-components';
         </div>
         <Menu isOpen={isOpen }>
         
-          <a href="#" className="menu-link">Register</a>
+          <a href="/signup" className="menu-link">Register</a>
           <a href="#" className="menu-link">Login</a>
           <a href="#" className="menu-link">Profile</a>
           <a href="#" className="menu-link">PC builds</a>

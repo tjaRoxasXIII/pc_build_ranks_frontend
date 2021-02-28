@@ -1,17 +1,30 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Signup from '../components/Signup'
 import Login from '../components/Login'
+import Navbar from '../components/Navbar'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Home from './Home';
 
 
 function App() {
+
   return (
-    <div>
-      <Home />
-      {/* <Signup /> */}
-      {/* <Login/> */}
-    </div>
+    
+    <Router>
+      <Navbar />
+      <div>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+
+            <Route exact path="/home" render={Home} />
+            <Route exact path="/signup" component={Signup} />
+            {/* <Login/> */}
+          </Switch>
+      </div>
+    </Router>
   );
 }
 
