@@ -6,8 +6,9 @@ const Computer = (computer) => (
         <img className="card-img-top" src={PC} alt="Test" />
         <div className="card-body">
             <h1 className="card-title">{ computer.computer.name }</h1>
-            <h2 className="card-text">CPU: { computer.computer.CPU }</h2>
-            <h2 className="card-text">GPU: { computer.computer.GPU }</h2>
+            <hr></hr>
+            <h2 className="card-text">CPU: { computer.computer.Cpu.model }</h2>
+            <h2 className="card-text">GPU: { computer.computer.Gpu.model }</h2>
         </div>
     </div>
 )

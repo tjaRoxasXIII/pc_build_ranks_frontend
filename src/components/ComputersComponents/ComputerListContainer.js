@@ -7,7 +7,10 @@ export default function ComputerListContainer() {
     useEffect(() => {
         fetch('http://localhost:3000/computers')
             .then(resp => resp.json())
-            .then(data => setComputers(data))
+            .then(data => {
+                debugger
+                setComputers(data)
+            })
     }, [])
 
     return(

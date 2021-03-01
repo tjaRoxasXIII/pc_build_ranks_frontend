@@ -25,7 +25,7 @@ import styled from 'styled-components';
         <Menu isOpen={isOpen }>
         
           <a href="/signup" className="menu-link">Register</a>
-          <a href="#" className="menu-link">Login</a>
+          <a href="/login" className="menu-link">Login</a>
           <a href="#" className="menu-link">Profile</a>
           <a href="#" className="menu-link">PC builds</a>
         </Menu>
