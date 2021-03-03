@@ -21,9 +21,7 @@ export default function Login() {
       })
         .then(response => response.json())
         .then(data => {
-          debugger
           console.log(data)
-          debugger
           if (data.token) {
             localStorage.setItem("token", data.token)
           }

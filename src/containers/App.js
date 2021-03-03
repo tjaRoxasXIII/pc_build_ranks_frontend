@@ -1,5 +1,4 @@
 import './App.css';
-import React, { useEffect } from 'react';
 import Signup from '../components/Signup'
 import Login from '../components/Login'
 import Navbar from '../components/Navbar'

@@ -3,7 +3,7 @@ import Computer from './Computer'
 
 const ComputerList = ({ computers }) => (
     <div className="cards">
-        { computers.map(computer => <Computer computer={computer}/>)}
+        { computers.map(computer => <Computer computer={computer} key={computer.id}/>)}
     </div>
 )
 

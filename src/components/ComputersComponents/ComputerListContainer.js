@@ -8,7 +8,6 @@ export default function ComputerListContainer() {
         fetch('http://localhost:3000/computers')
             .then(resp => resp.json())
             .then(data => {
-                debugger
                 setComputers(data)
             })
     }, [])
