@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button } from "semantic-ui-react";
 
 
+
 export default function Signup() {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -44,45 +45,61 @@ export default function Signup() {
   }
 
   return(
-      <Form onSubmit={handleSubmit}>
-      <Form.Input
-        type="username"
-        label="username"
-        name="username"
-        placeholder="Create a funky username Bro!"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-        required
-        />
-        <Form.Input
-          type="email"
-          label="email"
-          name="email" 
-          placeholder="example@email.com"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-        />
-        <Form.Input 
-          type="password"
-          label="password"
-          name="off"
-          placeholder="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
-        <Form.Input 
-          type="password"
-          label="confirm password"
-          name="off"
-          placeholder="passwordConfirm"
-          value={passwordConfirm}
-          onChange={e => setPasswordConfirm(e.target.value)}
-          required
-        />
-        <Button type='submit' onSubmit={handleSubmit}>Submit</Button>
-      </Form>
+      <form onSubmit={handleSubmit}>
+        <div className="mb=3">
+          <input
+            type="username"
+            className="form-control"
+            label="username"
+            name="username"
+            placeholder="Little Penguin"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="mb=3">
+          <input
+            type="email"
+            className="form-control"
+            label="email"
+            name="email" 
+            placeholder="example@email.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+        </div>
+
+        <div className="mb=3">
+          <input
+            type="password"
+            className="form-control"
+            label="password"
+            name="off"
+            placeholder="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="mb=3">
+          <input
+            type="password"
+            className="form-control"
+            label="confirm password"
+            name="off"
+            placeholder="passwordConfirm"
+            value={passwordConfirm}
+            onChange={e => setPasswordConfirm(e.target.value)}
+            required
+          />
+        </div>
+        <button className="btn btn-outline-success" type='submit' onSubmit={handleSubmit}>Submit</button>
+      </form>
   )
 }
 
