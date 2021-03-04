@@ -54,6 +54,7 @@ export default function Signup() {
       <div className="box-middle">
         <form onSubmit={handleSubmit}>
           <div className="mb=3 forum-bottom">
+            <p className="forum-text">Username:</p>
             <input
               type="username"
               className="form-control"
@@ -67,6 +68,7 @@ export default function Signup() {
           </div>
 
           <div className="mb=3 forum-bottom">
+            <p className="forum-text">Email:</p>
             <input
               type="email"
               className="form-control"
@@ -80,6 +82,7 @@ export default function Signup() {
           </div>
 
           <div className="mb=3 forum-bottom">
+            <p className="forum-text">Password:</p>
             <input
               type="password"
               className="form-control"
@@ -93,6 +96,7 @@ export default function Signup() {
           </div>
 
           <div className="mb=3 forum-bottom">
+            <p className="forum-text">Confirm Password:</p>
             <input
               type="password"
               className="form-control"

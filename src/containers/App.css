@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  background-color: #57636D;
 }
 
 .cards {
@@ -151,6 +152,7 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  background-color: #57636D;
 }
 .box-middle {
   width: 600px;
@@ -159,12 +161,17 @@ body {
 }
 
 .forum-bottom{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .side-image{
   margin-top: 35%;
   border-radius: 40px;
 
+}
+.forum-text {
+  margin-bottom: 0px;
+  color: white;
+  
 }
 
