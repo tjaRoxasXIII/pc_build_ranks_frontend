@@ -48,7 +48,7 @@ export default function Signup() {
 
     <div className="box-container">
       <div className="box">
-        <img src={PC} alt="Test" />
+        <img className="side-image" src={PC} alt="Test" />
       </div>
 
       <div className="box-middle">
@@ -109,7 +109,7 @@ export default function Signup() {
       </div>
 
       <div className="box">
-        <img src={PC} alt="Test" />
+        <img className="side-image" src={PC} alt="Test" />
       </div>
 
     </div>

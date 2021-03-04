@@ -154,11 +154,17 @@ body {
 }
 .box-middle {
   width: 600px;
-  margin-top: 10%;
+  margin-top: 15%;
 
 }
 
 .forum-bottom{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.side-image{
+  margin-top: 35%;
+  border-radius: 40px;
+
 }
 
