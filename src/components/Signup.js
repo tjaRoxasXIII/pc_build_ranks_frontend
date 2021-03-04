@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from "semantic-ui-react";
+import PC from '../images/PC.jpg';
 
 
 
@@ -45,60 +45,74 @@ export default function Signup() {
   }
 
   return(
-      <form onSubmit={handleSubmit}>
-        <div className="mb=3">
-          <input
-            type="username"
-            className="form-control"
-            label="username"
-            name="username"
-            placeholder="Little Penguin"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            required
-          />
-        </div>
 
-        <div className="mb=3">
-          <input
-            type="email"
-            className="form-control"
-            label="email"
-            name="email" 
-            placeholder="example@email.com"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-        </div>
+    <div className="box-container">
+      <div className="box">
+        <img src={PC} alt="Test" />
+      </div>
 
-        <div className="mb=3">
-          <input
-            type="password"
-            className="form-control"
-            label="password"
-            name="off"
-            placeholder="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-          />
-        </div>
+      <div className="box-middle">
+        <form onSubmit={handleSubmit}>
+          <div className="mb=3 forum-bottom">
+            <input
+              type="username"
+              className="form-control"
+              label="username"
+              name="username"
+              placeholder="Little Penguin"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="mb=3">
-          <input
-            type="password"
-            className="form-control"
-            label="confirm password"
-            name="off"
-            placeholder="passwordConfirm"
-            value={passwordConfirm}
-            onChange={e => setPasswordConfirm(e.target.value)}
-            required
-          />
-        </div>
-        <button className="btn btn-outline-success" type='submit' onSubmit={handleSubmit}>Submit</button>
-      </form>
+          <div className="mb=3 forum-bottom">
+            <input
+              type="email"
+              className="form-control"
+              label="email"
+              name="email" 
+              placeholder="example@email.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="mb=3 forum-bottom">
+            <input
+              type="password"
+              className="form-control"
+              label="password"
+              name="off"
+              placeholder="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="mb=3 forum-bottom">
+            <input
+              type="password"
+              className="form-control"
+              label="confirm password"
+              name="off"
+              placeholder="passwordConfirm"
+              value={passwordConfirm}
+              onChange={e => setPasswordConfirm(e.target.value)}
+              required
+            />
+          </div>
+          <button className="btn btn-outline-success" type='submit' onSubmit={handleSubmit}>Submit</button>
+        </form>
+      </div>
+
+      <div className="box">
+        <img src={PC} alt="Test" />
+      </div>
+
+    </div>
   )
 }
 
