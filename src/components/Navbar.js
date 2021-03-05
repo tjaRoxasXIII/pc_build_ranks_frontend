@@ -1,44 +1,64 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components';
 
 
- function Navbar() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState (false)
   const [input, setInput] = useState('')
-  const [results, setResults] = useState('')
-   
+  let history = useHistory()
+  
   const search = (e) => {
+    const results = {
+      cpus: [],
+      gpus: [],
+      computers: []
+    }
+
     e.preventDefault()
-    fetch("http://localhost:3000/cpus")
-      .then(resp => resp.json())
-      .then(data => {
-        data.filter(cpu => {
-          if (cpu.brand.toLowerCase().includes(input.toLowerCase())) {
-            console.log(cpu)
-          }
-        })
+
+    Promise.all([
+      fetch('http://localhost:3000/cpus'),
+      fetch('http://localhost:3000/gpus'),
+      fetch('http://localhost:3000/computers')
+    ]).then(function (responses) {
+      // Get a JSON object from each of the responses
+      return Promise.all(responses.map(function (response) {
+        return response.json();
+      }));
+    }).then(data => {
+      // Iterate through each dataset returned and filter the results
+      data[0].filter(cpu => {
+        if (cpu.brand.toLowerCase().includes(input.toLowerCase())) {
+          results["cpus"].push(cpu)
+        }
       })
 
-    fetch("http://localhost:3000/gpus")
-    .then(resp => resp.json())
-    .then(data => {
-      data.filter(gpu => {
+      data[1].filter(gpu => {
         if (gpu.brand.toLowerCase().includes(input.toLowerCase())) {
-          console.log(gpu)
+          results["gpus"].push(gpu)
         }
       })
-    })
 
-    fetch("http://localhost:3000/computers")
-    .then(resp => resp.json())
-    .then(data => {
-      data.filter(computer => {
+      data[2].filter(computer => {
         if ((computer.name.toLowerCase().includes(input.toLowerCase())) || (computer.Cpu.brand.toLowerCase().includes(input.toLowerCase())) || (computer.Gpu.brand.toLowerCase().includes(input.toLowerCase()))) {
-          console.log(computer)
+          results["computers"].push(computer)
         }
       })
+
+      console.log(results)
+      history.push({
+        pathname: '/results',
+        search: `?query=${input}`,
+        state: { results }
+      })
     })
+    .catch(function (error) {
+      // if there's an error, log it
+      console.log(error);
+    });
   }
+
     
   return (
       <div className="nav">

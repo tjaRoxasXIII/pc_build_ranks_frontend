@@ -3,6 +3,7 @@ import './Forum.css';
 import Signup from '../components/Signup'
 import Login from '../components/Login'
 import Navbar from '../components/Navbar'
+import SearchResults from '../containers/SearchResults'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Home from './Home';
 
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/home" render={Home} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/results" component={SearchResults} />
           </Switch>
       {/* </div> */}
     </Router>
