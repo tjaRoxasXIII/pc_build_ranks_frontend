@@ -1,4 +1,5 @@
 import './App.css';
+import './Forum.css';
 import Signup from '../components/Signup'
 import Login from '../components/Login'
 import Navbar from '../components/Navbar'
@@ -12,7 +13,7 @@ function App() {
     
     <Router>
       <Navbar />
-      <div>
+      {/* <div className="fullScreen"> */}
           <Switch>
             <Route exact path="/">
               <Redirect to="/home" />
@@ -22,7 +23,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
           </Switch>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }

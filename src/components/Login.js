@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from "semantic-ui-react";
-import styled from 'styled-components';
+import PC from '../images/PC.jpg';
 
 
 export default function Login() {
@@ -39,28 +38,49 @@ export default function Login() {
   }
 
   return(
-      <Form onSubmit={handleSubmit}>
-        <Form.Input
-          type="username"
-          label="username"
-          name="username"
-          placeholder="Username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          required
-        />
-       
-        <Form.Input 
-          type="password"
-          label="password"
-          name="off"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
-        <Button type='submit' onSubmit={handleSubmit}>Submit</Button>
-      </Form>
+  <div className="box-container">
+    <div className="box">
+      <img className="side-image" src={PC} alt="Test" />
+    </div>
+
+    <div className="box-middle">
+      <form onSubmit={handleSubmit}>
+        <div className="mb=3 forum-bottom">
+          <p className="forum-text">Username:</p>
+          <input
+            type="username"
+            label="username"
+            className="form-control"
+            name="username"
+            placeholder="tjaRoxasXIII"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="mb=3 forum-bottom">
+          <p className="forum-text">Password:</p>
+          <input
+            type="password"
+            label="password"
+            className="form-control"
+            name="off"
+            placeholder="TJAllen101795!"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button className="btn btn-outline-success" type='submit' onSubmit={handleSubmit}>Submit</button>
+      </form>
+    </div>
+
+    <div className="box">
+      <img className="side-image" src={PC} alt="Test" />
+    </div>
+
+  </div>
   )
 }
 

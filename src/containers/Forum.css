@@ -1,0 +1,30 @@
+.box-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  background-color: #57636D;
+  align-content: stretch;
+  
+}
+.box-middle {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.forum-bottom{
+  margin-bottom: 10px;
+}
+
+.side-image{
+  border-radius: 40px;
+  height:max-content;
+}
+.forum-text {
+  margin-bottom: 0px;
+  color: white;
+}
+
+
+
