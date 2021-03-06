@@ -29,19 +29,23 @@ function Navbar() {
     }).then(data => {
       // Iterate through each dataset returned and filter the results
       data[0].filter(cpu => {
-        if (cpu.brand.toLowerCase().includes(input.toLowerCase())) {
+        if (cpu.brand.toLowerCase().includes(input.toLowerCase()) || cpu.model.toLowerCase().includes(input.toLocaleLowerCase())) {
           results["cpus"].push(cpu)
         }
       })
 
       data[1].filter(gpu => {
-        if (gpu.brand.toLowerCase().includes(input.toLowerCase())) {
+        if (gpu.brand.toLowerCase().includes(input.toLowerCase()) || (gpu.model.toLowerCase().includes(input.toLocaleLowerCase()))) {
           results["gpus"].push(gpu)
         }
       })
 
       data[2].filter(computer => {
-        if ((computer.name.toLowerCase().includes(input.toLowerCase())) || (computer.Cpu.brand.toLowerCase().includes(input.toLowerCase())) || (computer.Gpu.brand.toLowerCase().includes(input.toLowerCase()))) {
+        if ((computer.name.toLowerCase().includes(input.toLowerCase())) || 
+          (computer.Cpu.model.toLowerCase().includes(input.toLocaleLowerCase())) ||
+          (computer.Cpu.brand.toLowerCase().includes(input.toLowerCase())) ||
+          (computer.Gpu.model.toLowerCase().includes(input.toLocaleLowerCase())) ||
+          (computer.Gpu.brand.toLowerCase().includes(input.toLowerCase()))) {
           results["computers"].push(computer)
         }
       })
