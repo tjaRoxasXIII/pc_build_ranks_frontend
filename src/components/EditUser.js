@@ -5,10 +5,14 @@ import PC from '../images/PC.jpg';
 export default function EditUser() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [profile_pic, setProfilePic] = useState('')
 
   const user = {user: {
       username,
-      password
+      password,
+      email,
+      profile_pic
     }
   }
   
