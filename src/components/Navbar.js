@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components';
 
 
 function Navbar() {
+  const dispatch = useDispatch()
+  const isLoggedIn = useSelector(state => state.isSignedIn)
   const [isOpen, setIsOpen] = useState (false)
   const [input, setInput] = useState('')
   let history = useHistory()
   
+  //SearchBar Functionality
   const search = (e) => {
     const results = {
       cpus: [],
@@ -63,7 +67,14 @@ function Navbar() {
     });
   }
 
-    
+  function signOut() {
+    localStorage.removeItem('token')
+    dispatch({
+      type: 'SIGN_OUT'
+    })
+    history.push('/')
+  }
+  // This is where the Navbar is rendered
   return (
       <div className="nav">
       <div className="nav-link-left">
@@ -81,13 +92,21 @@ function Navbar() {
         <span />
         <span />
       </div>
+      {isLoggedIn
+      ?
       <Menu isOpen={isOpen }>
-      
-        <a href="/signup" className="menu-link">Register</a>
-        <a href="/login" className="menu-link">Login</a>
+        {console.log(isLoggedIn)}
         <a href="#" className="menu-link">Profile</a>
         <a href="#" className="menu-link">PC builds</a>
+        <a href="#" className="menu-link" onClick={() => signOut() }>Sign Out</a>
       </Menu>
+      :
+      <Menu isOpen={isOpen }>
+        {console.log(isLoggedIn)}
+        <a href="/signup" className="menu-link">Register</a>
+        <a href="/login" className="menu-link">Login</a>
+      </Menu>
+      }
       </div>
       
   );
@@ -108,5 +127,6 @@ function Navbar() {
    background-color: #618992;
 }
  `
+
 
 export default Navbar;

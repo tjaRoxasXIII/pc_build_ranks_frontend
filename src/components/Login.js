@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import PC from '../images/PC.jpg';
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 
 export default function Login() {
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  let history = useHistory()
 
   const user = {user: {
       username,
@@ -24,11 +28,30 @@ export default function Login() {
           console.log(data)
           if (data.token) {
             localStorage.setItem("token", data.token)
+            const token = localStorage.getItem('token')
+            //This code block is called to authorize and decrypt the JWT token
+            if (token) {
+              fetch('http://localhost:3000/auto_login', {
+                          headers: {
+                              Authorization: `Bearer ${token}`
+                          }
+                      })
+                      .then(resp => resp.json())
+                      .then(data => {
+                        dispatch({
+                          type: 'SIGN_IN',
+                          payload: data
+                        })
+                      })
+            }
           }
           else {
             displayErrors(data)
           }
-        })   
+        })
+        .then(
+          history.push("/")
+        )  
   }
 
   const displayErrors = (data) => {

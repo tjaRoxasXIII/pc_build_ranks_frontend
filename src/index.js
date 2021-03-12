@@ -11,8 +11,27 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 
+function checkLogin() {
+  const token = localStorage.getItem('token')
+  if (token) {
+    fetch('http://localhost:3000/auto_login', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(resp => resp.json())
+            .then(data => {
+              store.dispatch({
+                type: 'SIGN_IN',
+                payload: data
+              })
+            })
+  }
+}
+
 ReactDOM.render(
   <Provider store={store}>
+    {checkLogin()}
     <App />
   </Provider>,
   document.getElementById('root')

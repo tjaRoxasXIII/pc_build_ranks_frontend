@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 export default function sessionReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'SIGN_IN':
-            return {isSignedIn: true, userId: action.payload.id, user: action.payload.username}
+            return {...state, isSignedIn: true, userId: action.payload.id, user: action.payload.username}
 
         case 'SIGN_OUT':
             return state = INITIAL_STATE
