@@ -96,8 +96,8 @@ function Navbar() {
       ?
       <Menu isOpen={isOpen }>
         {console.log(isLoggedIn)}
-        <a href="#" className="menu-link">Profile</a>
-        <a href="#" className="menu-link">PC builds</a>
+        <a href="/profile" className="menu-link">Profile</a>
+        <a href="/builds" className="menu-link">PC builds</a>
         <a href="#" className="menu-link" onClick={() => signOut() }>Sign Out</a>
       </Menu>
       :
