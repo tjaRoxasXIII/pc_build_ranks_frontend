@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Home from './Home';
 
 function App() {
-
   return (
     
     <Router>
@@ -22,11 +21,11 @@ function App() {
             </Route>
 
             <Route exact path="/home" render={Home} />
-            <Route exact path="/builds" render={Builds} />
-            <Route exact path="/profile" render={Profile} />
+            <Route exact path="/builds" component={Builds} />
+            <Route exact path="/profile" component={Profile} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/results" component={SearchResults} />
+            <Route exact path="/results" render={SearchResults} />
           </Switch>
       {/* </div> */}
     </Router>

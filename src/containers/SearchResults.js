@@ -4,7 +4,6 @@ const SearchResults = props => {
   let cpus = props.location.state.results.cpus.slice(0, 5)
   let gpus = props.location.state.results.gpus.slice(0, 5)
   let computers = props.location.state.results.computers.slice(0, 5)
-  debugger
   return (
       <div>
         <h1>Search Results</h1>

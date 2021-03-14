@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import PC from '../images/PC.jpg';
 
 
@@ -8,6 +10,8 @@ export default function Signup() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
+  const dispatch = useDispatch()
+  let history = useHistory()
 
   const user = {user: {
       username,
@@ -26,16 +30,31 @@ export default function Signup() {
       })
         .then(response => response.json())
         .then(data => {
-          debugger
           console.log(data)
-          debugger
           if (data.token) {
             localStorage.setItem("token", data.token)
-          }
+        
+            fetch('http://localhost:3000/auto_login', {
+                        headers: {
+                            Authorization: `Bearer ${data.token}`
+                        }
+                    })
+                    .then(resp => resp.json())
+                    .then(data => {
+                      dispatch({
+                        type: 'SIGN_IN',
+                        payload: data
+                      })
+                    })
+                  }
+            
           else {
             displayErrors(data)
           }
-        })   
+        })
+        .then(
+          history.push("/")
+        )   
   }
 
   const displayErrors = (data) => {
