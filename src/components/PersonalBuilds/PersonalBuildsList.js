@@ -1,11 +1,23 @@
 import React from 'react'
 import PersonalBuild from './PersonalBuild'
+import { useSelector } from 'react-redux'
+
 
 const PersonalBuildsList = ({ computers }) => {
-    if (computers.length > 0) {
+    const userId = useSelector(state => state.userId)
+    const results = []
+
+    computers.filter(computer => {
+        if (computer.user_id === userId) {
+            return results.push(computer)
+        }
+    })
+
+
+    if (results.length > 0) {
         return(
         <div className="cards">
-            { computers.map(computer => <PersonalBuild computer={computer} key={computer.id}/>)}
+            { results.map(computer => <PersonalBuild computer={computer} key={computer.id}/>)}
         </div>
         )
     }
