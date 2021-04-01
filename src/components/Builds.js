@@ -1,12 +1,23 @@
 import React from 'react'
 import PersonalBuildsContainer from './PersonalBuilds/PersonalBuildsContainer'
+import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export default function Builds() {
     const userId = useSelector(state => state.userId)
+    let history = useHistory()
     const displayForm = () => {
+        let btn = document.getElementById("expand")
+
         let form = document.getElementById("new-pc-form")
-        form.style.display = "block"
+        if (form.style.display === "none") {
+            form.style.display = "block"
+            btn.innerText = "-"
+        }
+        else {
+            form.style.display = "none"
+            btn.innerText = "+"
+        }
     }
 
     function handleOnSubmit(e) {
@@ -26,15 +37,18 @@ export default function Builds() {
          },
             body: JSON.stringify(newComputer)
         })
+        .then(
+            history.push("/")
+        )
 
     }
 
     return(
         <>
-        <h1>Your Build-List</h1>
+        <h1 style={{color: 'white'}}>Your Build-List</h1>
         
         <PersonalBuildsContainer />
-        <h2>Add A Build <button onClick={displayForm}>+</button></h2>
+        <h2>Add A Build <button id={"expand"} onClick={displayForm}>+</button></h2>
         <form id="new-pc-form" onSubmit={handleOnSubmit} style={{display: 'none'}}>
             <label>Image</label>
             <input type="file"></input><br/>
