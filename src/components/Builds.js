@@ -27,7 +27,6 @@ export default function Builds() {
             GPU: parseInt(e.target[3].value),
             user_id: userId
         }
-        debugger
         e.preventDefault()
         fetch('http://localhost:3000/computers', {
             method: 'POST',
@@ -38,7 +37,7 @@ export default function Builds() {
             body: JSON.stringify(newComputer)
         })
         .then(
-            history.push("/")
+            history.go(0)
         )
 
     }
